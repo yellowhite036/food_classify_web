@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* 深灰色背景 */
+            color: #fff; /* 白色文字 */
+        }
+
+        h1 {
+            margin: 20px 0;
+            color: #3498db; /* 藍色標題 */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #87CEEB; /* 淺藍色超連結文字 */
+            text-decoration: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50; /* 綠色按鈕 */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>圖片辨識結果</h1>
+    <p>該食物為: {{ prediction.food_name }}</p>
+    <p>價格為: {{ prediction.price }} 元</p>
+    <p>單位: {{ prediction.quantity }}</p>
+    <p>{{ prediction.calories }}</p>
+    <p>碳水化合物: {{ prediction.carbohydrate }}</p>
+    <p>脂肪: {{ prediction.fat }}</p>
+    <p>蛋白質: {{ prediction.protein }}</p>
+
+    <p>營養資訊參考來源: <a href="https://myfitnesspal.com/zh-TW/nutrition-facts-calories/{{ prediction.food_name }}" target="_blank">MyFitnessPal</a></p>
+
+    <!-- 返回上一頁的按鈕 -->
+    <button onclick="goBack()">返回上一頁</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

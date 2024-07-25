@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Image Upload</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* 深灰色背景 */
+            color: #fff; /* 白色文字 */
+        }
+
+        h1 {
+            margin: 20px 0;
+            color: #3498db; /* 藍色標題 */
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #444; /* 深灰色表單區域 */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ddd; /* 淡灰色標籤文字 */
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #555; /* 深灰色邊框 */
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #666; /* 深灰色輸入框背景 */
+            color: #fff; /* 白色文字 */
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50; /* 綠色按鈕 */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .hint {
+            color: #aaa; /* 淺灰色提示文字 */
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .additional-info {
+            color: #ddd; /* 淡灰色文字 */
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>美食的熱量辨識工具</h1>
+    <p>上傳一張食物圖片，我們將為您辨識熱量和營養成分。</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="{{ form.image.id_for_label }}">上傳圖片:</label>
+        {{ form.image }}
+        <div class="hint">支援格式: JPG, JPEG, PNG</div>
+        <label for="{{ form.price.id_for_label }}">輸入價格:</label>
+        {{ form.price }}
+        <div class="hint">不知道價格可以跳過</div>
+        <p>
+        <button type="submit">上傳</button>
+        <div class="additional-info">
+            <p>感謝您的分享!</p>
+        </div>
+    </form>
+</body>
+</html>
