@@ -27,8 +27,8 @@ def predict(request):
             output = m(images)
             predicted_index = output.numpy().argmax()
             print(predicted_index)
-            classes = pd.read_csv(r"C:\Users\HC\Desktop\django\project\aiy_food_V1_labelmap.csv")
-            food_info = pd.read_csv(r"C:\Users\HC\Desktop\django\project\food_info.csv", encoding='utf-8')
+            classes = pd.read_csv("aiy_food_V1_labelmap.csv")
+            food_info = pd.read_csv("food_info.csv", encoding='utf-8')
 
             # Extract additional information based on predicted class
             food_name = classes["name"][predicted_index]
